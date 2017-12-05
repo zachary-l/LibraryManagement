@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <title>后台管理系统</title>
+    <meta name="author" content="DeathGhost"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/pagination.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.pagination.js"></script>
+    <script src="js/closable-tab-div.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <style>
+        .con2_1 {
+            width: 84%;
+            height: 564px;
+            /*border: 1px solid red;*/
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<!--header-->
+<header>
+    <h1>
+        <img src="images/admin_logo1.png"/>
+    </h1>
+    <ul class="rt_nav">
+        <li><a href="#" target="_blank" class="website_icon">系统首页</a></li>
+        <li><a href="#" class="admin_icon">用户名</a></li>
+        <li><a href="#" class="set_icon">账号设置</a></li>
+        <li><a href="#" class="quit_icon">安全退出</a></li>
+    </ul>
+</header>
+<font></font>
+<!--aside nav-->
+<!--aside nav-->
+<div class="contents">
+    <aside class="lt_aside_nav content mCustomScrollbar">
+        <h2>
+            <a href="">返回首页</a>
+        </h2>
+        <ul>
+            <li>
+                <dl>
+                    <dt>读者信息管理</dt>
+                    <dd>
+                        <a href="#" class="modelspan" id="readerManagement">读者信息管理</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>图书信息管理</dt>
+                    <dd>
+                        <a href="" class="modelspan">图书信息统计</a>
+                    </dd>
+                    <dd>
+                        <a href="" class="modelspan">图书列表</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>图书借阅管理</dt>
+                    <dd>
+                        <a href="" class="modelspan">图书借阅</a>
+                    </dd>
+                    <dd>
+                        <a href="" class="modelspan">图书归还</a>
+                    </dd>
+                    <dd>
+                        <a href="" class="modelspan">罚金管理</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>系统维护</dt>
+                    <dd>
+                        <a href="#" class="modelspan" id="">系统用户管理</a>
+                    </dd>
+                    <dd>
+                        <a href="#" class="modelspan" id="">图书类别设置</a>
+                    </dd>
+                    <dd>
+                        <a href="#" class="modelspan" id="">罚金类型设置</a>
+                    </dd>
+                    <dd>
+                        <a href="#" class="modelspan" id="">部门班级设置</a>
+                    </dd>
+                    <dd>
+                        <a href="#" class="modelspan" id=""></a>
+                    </dd>
+                </dl>
+            </li>
+
+
+        </ul>
+    </aside>
+
+    <!--右边页面加载-->
+    <div class="con2_1">
+        <!--加载进来的内容-->
+        <div class="row" style="margin: 0;padding: 0;">
+            <!-- 此处是相关代码 -->
+            <ul class="nav nav-tabs" role="tablist">
+            </ul>
+            <div class="tab-content">
+
+            </div>
+            <!-- 相关代码结束 -->
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    //	加载页面
+    $(function () {
+        var item = {'id': '1', 'name': '首页', 'url': 'homepage.html', 'closable': false};
+        closableTab.addTab(item);
+        $(".modelspan").on("click", function () {
+            var name = $(this).text();//标签名
+            var tid = $(this).attr("id");//标签页ID
+            var pageurl = tid + ".html";//标签页地址
+//			alert(pageurl);
+            var item = {'id': tid, 'name': name, 'url': pageurl, 'closable': true};
+            closableTab.addTab(item);
+        });
+    });
+</script>
+</html>

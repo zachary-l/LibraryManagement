@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" href="css/readerManage.css">
+	<script type="text/javascript">
+        $.getScript("js/readerManage.js");
+	</script>
+</head>
+<body>
+		<div class="rt_content">
+			<div class="page_title">
+				<h2 class="fl">商品列表</h2>
+				<a href="#" class="fr top_rt_btn add_icon" data-toggle="modal" data-target="#readerModal">添加读者</a>
+			</div>
+			<!--  <section class="mtb">
+				<select class="select">
+					<option>类型/价格/关键字</option>
+					<option>菜单1</option>
+				</select> 
+				<input type="text" class="textbox textbox_225" placeholder="输入产品关键词..." /> 
+				<input type="button" value="查询"class="group_btn" />
+			</section>-->
+			<table id="tab" class="table readerManage_tab">
+				<tr id="first">
+					<th>读者名字</th>
+					<th>性别</th>
+					<th>电话</th>
+					<th>地址</th>
+					<th>信用积分</th>
+					<th>修改信息</th>
+					<th>删除用户</th>
+				</tr>
+
+			</table>
+			<br>
+			<!-- 分页控件 -->
+			<div id="readerManagement_page" style="float: right;" >
+			</div>
+		</div>
+
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="readerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 400px;margin: auto;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							添加读者
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div class="addreader_content">
+
+							<form  class="form-horizontal" role="form" id="reader_addf1">
+								<div class="form-group">
+									<label for="reName" class="col-sm-3 control-label">读者名字</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="reName" placeholder="请输入读者名字" name="reName">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="rePhone" class="col-sm-3 control-label">读者电话</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="rePhone" placeholder="请输入读者电话" name="phone">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="reAddress" class="col-sm-3 control-label">读者地址</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="reAddress" placeholder="请输入读者地址" name="reAddress">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="reCredit" class="col-sm-3 control-label">读者信用</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control" id="reCredit" placeholder="请输入读者信用" readonly  value="100" name="reCredit">
+									</div>
+								</div>
+
+
+								<!--<div class="form-group"style="width: 89%;margin-left: 39px">
+									<select class="form-control">
+										<option>系部</option>
+										<option>java</option>
+										<option>net</option>
+									</select>
+								</div>
+
+								<div class="form-group" style="width: 89%;margin-left: 39px">
+									<select class="form-control">
+										<option>班级</option>
+										<option>138</option>
+										<option>139</option>
+									</select>
+								</div>-->
+
+								<div class="radio"style="width: 89%;margin-left: 39px">
+									<label>
+										<input type="radio" name="sex" id="optionsRadios1" value="1" checked> 男
+									</label>
+									<label>
+										<input type="radio" name="sex" id="optionsRadios2" value="0">女
+									</label>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default readerManage_closebtn" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn readerManage_addbtn">
+							提交
+						</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+</body>
+</html>
