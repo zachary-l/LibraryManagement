@@ -45,7 +45,7 @@ public class ReaderAction {
     }
 
     /**
-     * 删除用户
+     * 注销用户
      * @param reId
      * @param currentPage
      * @return

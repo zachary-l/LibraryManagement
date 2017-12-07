@@ -45,9 +45,9 @@ function validate () {
     	  data:{adId:auser,adPass:apawd},
     	  success:function(data) {
 				if (data.statusCode == 401) {
-					// alert(data.message);
+					alert(data.message);
 				} else if (data.statusCode == 200) {
-					alert("登录成功！");
+					// alert("登录成功！");
 					//$("#LoginModal").modal("hide");
 					//刷新当前页面
 					location.href='index.html';

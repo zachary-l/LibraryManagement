@@ -11,6 +11,9 @@ import org.evergreen.web.ViewResult;
 import org.evergreen.web.annotation.RequestMapping;
 import org.evergreen.web.view.Json;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RequestMapping("/admin")
@@ -41,7 +44,7 @@ public class AdminAction {
     @RequestMapping("/findAll")
     public ViewResult find() {
         List<Admin> list = new AdminManageService().findAll();
-        return new Json(list);
+        return new Json(list,"yyyy-MM-dd hh:mm:ss");
     }
     /**
      * 添加图书管理员
