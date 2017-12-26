@@ -2,12 +2,14 @@ package com.library.controller;
 
 import com.library.dto.DataDto;
 import com.library.dto.PageBean;
+import com.library.exception.FlowException;
 import com.library.model.InfoBook;
 import com.library.model.TypeBooks;
 import com.library.service.InfoBooksService;
 import org.evergreen.web.HttpStatus;
 import org.evergreen.web.ViewResult;
 import org.evergreen.web.annotation.RequestMapping;
+import org.evergreen.web.view.ForwardView;
 import org.evergreen.web.view.Json;
 
 @RequestMapping("/infoBooks")
@@ -25,8 +27,12 @@ public class InfoBooksAction {
      */
     @RequestMapping("/findBooksById")
     public ViewResult findBooksById(TypeBooks typeBooks,int currentPage){
-        return new Json(new InfoBooksService().findInfoBooksById(typeBooks,currentPage),"yyyy-MM-dd hh:mm:ss");
-    }
+        if(typeBooks.getTyId()==0){
+            return new ForwardView("addBooks");
+        }else{
+            return new Json(new InfoBooksService().findInfoBooksById(typeBooks,currentPage),"yyyy-MM-dd hh:mm:ss");
+            }
+        }
     /**
      * 添加书籍
      */
@@ -38,11 +44,11 @@ public class InfoBooksAction {
             PageBean pageBean = service.addInfoBook(book,currentPage);
             data.setStatusCode(HttpStatus.SC_OK);
             data.setValue(pageBean);
-        } catch (Exception e) {
+        } catch (FlowException e) {
             e.printStackTrace();
             data.setMessage(e.getMessage());
             data.setStatusCode(HttpStatus.SC_UNAUTHORIZED);
         }
-        return new Json(data);
+        return new Json(data,"yyyy-MM-dd hh:mm:ss");
     }
 }

@@ -16,6 +16,8 @@ public class BorrowBooks {
     private Date borTimeLast;
     @Column("BOR_NUM")//借阅册数
     private int borNum;
+    @Column("BOR_RETURN")
+    private int borReturn=1;
     @Column("IN_ID")//图书外键
     private int inId;
     @Column("RE_ID")//读者id外键
@@ -53,6 +55,14 @@ public class BorrowBooks {
 
     public void setBorNum(int borNum) {
         this.borNum = borNum;
+    }
+
+    public int getBorReturn() {
+        return borReturn;
+    }
+
+    public void setBorReturn(int borReturn) {
+        this.borReturn = borReturn;
     }
 
     public int getInId() {

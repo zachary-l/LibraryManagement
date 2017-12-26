@@ -32,7 +32,6 @@ function insertReader() {
             }
         })
     })
-
 }
 
 //显示表格数据

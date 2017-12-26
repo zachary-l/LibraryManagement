@@ -11,8 +11,8 @@ public class ReturnBooks {
     private Date retTime;
     @Column("RET_NUM")//归还数量
     private int retNum;
-    @Column("IN_ID")//借阅id外键
-    private int inId;
+    @Column("BOR_ID")//借阅id外键
+    private int borId;
 
     public int getRetId() {
         return retId;
@@ -38,11 +38,11 @@ public class ReturnBooks {
         this.retNum = retNum;
     }
 
-    public int getInId() {
-        return inId;
+    public int getBorId() {
+        return borId;
     }
 
-    public void setInId(int inId) {
-        this.inId = inId;
+    public void setBorId(int borId) {
+        this.borId = borId;
     }
 }

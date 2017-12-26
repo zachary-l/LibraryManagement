@@ -61,7 +61,7 @@ public class AdminAction {
             data.setMessage(e.getMessage());
             data.setStatusCode(HttpStatus.SC_UNAUTHORIZED);
         }
-        return new Json(data);
+        return new Json(data,"yyyy-MM-dd hh:mm:ss");
     }
     /**
      * 修改管理员信息
@@ -80,7 +80,7 @@ public class AdminAction {
             data.setMessage(e.getMessage());
             data.setStatusCode(HttpStatus.SC_UNAUTHORIZED);
         }
-        return new Json(data);
+        return new Json(data,"yyyy-MM-dd hh:mm:ss");
     }
     /**
      *修改密码
@@ -115,7 +115,7 @@ public class AdminAction {
             data.setMessage(e.getMessage());
             data.setStatusCode(HttpStatus.SC_UNAUTHORIZED);
         }
-        return new Json(data);
+        return new Json(data,"yyyy-MM-dd hh:mm:ss");
     }
 
 }

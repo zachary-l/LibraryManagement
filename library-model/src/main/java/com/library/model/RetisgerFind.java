@@ -14,8 +14,8 @@ public class RetisgerFind {
     private double rfMoney;
     @Column("TF_ID")//外键罚金类型
     private int typeFind;
-    @Column("RE_ID")//外键借阅记录
-    private int tfId;
+    @Column("BOR_ID")//外键借阅记录
+    private int borId;
 
     public int getRfId() {
         return rfId;
@@ -49,11 +49,11 @@ public class RetisgerFind {
         this.typeFind = typeFind;
     }
 
-    public int getTfId() {
-        return tfId;
+    public int getBorId() {
+        return borId;
     }
 
-    public void setTfId(int tfId) {
-        this.tfId = tfId;
+    public void setBorId(int borId) {
+        this.borId = borId;
     }
 }
