@@ -1,4 +1,4 @@
-package com.library.exception;
+package com.library.dao.exception;
 
 import org.evergreen.web.exception.ActionException;
 

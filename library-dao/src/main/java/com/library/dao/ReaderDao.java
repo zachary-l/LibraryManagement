@@ -15,24 +15,27 @@ public class ReaderDao {
 
     /**
      * 查询全部用户分页
+     *
      * @param firstResult
      * @param maxResult
      * @return
      */
-        public List<Map<String,Object>> findReader(int firstResult , int maxResult){
-            String sql = "SELECT * FROM READER_USERS ORDER BY RE_ID DESC LIMIT ?,?;";
-            List<Map<String,Object>> list = null;
-            SQLExecutor se = new SQLExecutor(DBUtil.getConnection());
-            MapListHandler handler = new MapListHandler();
-            try {
-                list= se.executeQuery(sql,handler,firstResult , maxResult);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return list;
+    public List<Map<String, Object>> findReader(int firstResult, int maxResult) {
+        String sql = "SELECT * FROM READER_USERS ORDER BY RE_ID DESC LIMIT ?,?;";
+        List<Map<String, Object>> list = null;
+        SQLExecutor se = new SQLExecutor(DBUtil.getConnection());
+        MapListHandler handler = new MapListHandler();
+        try {
+            list = se.executeQuery(sql, handler, firstResult, maxResult);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return list;
+    }
+
     /**
      * 查询总页数
+     *
      * @return
      */
     public int count() {
@@ -51,16 +54,17 @@ public class ReaderDao {
 
     /**
      * 添加读者
+     *
      * @param re
      * @return
      */
-    public int addReader(Reader re){
+    public int addReader(Reader re) {
         int row = 0;
-        String sql ="INSERT INTO READER_USERS(RE_NAME,RE_SEX,RE_PHONE,RE_ADDRESS,RE_CREDIT) VALUES(?,?,?,?,?);";
+        String sql = "INSERT INTO READER_USERS(RE_NAME,RE_SEX,RE_PHONE,RE_ADDRESS,RE_CREDIT) VALUES(?,?,?,?,?);";
         SQLExecutor se = new SQLExecutor(DBUtil.getConnection());
 
         try {
-            row = se.executeUpdate(sql,re.getReName(),re.getSex(),re.getPhone(),re.getReAddress(),re.getReCredit());
+            row = se.executeUpdate(sql, re.getReName(), re.getSex(), re.getPhone(), re.getReAddress(), re.getReCredit());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -69,15 +73,16 @@ public class ReaderDao {
 
     /**
      * 删除用户
+     *
      * @param id
      * @return
      */
-    public int deleteReader(int id){
+    public int deleteReader(int id) {
         int row = 0;
         String sql = "DELETE FROM READER_USERS WHERE RE_ID = ?";
         SQLExecutor se = new SQLExecutor(DBUtil.getConnection());
         try {
-            row = se.executeUpdate(sql,id);
+            row = se.executeUpdate(sql, id);
         } catch (SQLException e) {
             e.printStackTrace();
         }

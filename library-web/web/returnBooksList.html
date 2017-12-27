@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/returnBooksList.js"></script>
+
+</head>
+<body>
+<div class="">
+    <div class="page_title">
+        <h2 class="fl">归还记录</h2>
+    </div>
+    <section class="mtb">
+        <select class="select">
+            <option>读者关键字</option>
+            <option>图书关键字</option>
+        </select>
+        <input type="text" class="textbox textbox_225" placeholder="输入产品关键词..."/>
+        <input type="button" value="查询" class="group_btn"/>
+    </section>
+    <table id="tab" class="table returnBooksList_tab">
+        <tr id="first">
+            <th style="width:50px;">归还编号</th>
+            <th style="width:50px;">读者编号</th>
+            <th style="width:50px;">读者名字</th>
+            <th style="width:50px;">图书名称</th>
+            <th style="width:50px;">图书编号</th>
+            <th style="width:50px;">借书时间</th>
+            <th style="width:50px;">归还时间</th>
+            <th style="width:60px;">借阅册数</th>
+            <th style="width:60px;">借出管理员</th>
+            <th style="width:70px;">信用度</th>
+        </tr>
+    </table>
+    <br>
+
+
+    <!-- 分页控件 -->
+    <div id="returnBookList_page" style="float: right;">
+    </div>
+</div>
+</body>
+</html>

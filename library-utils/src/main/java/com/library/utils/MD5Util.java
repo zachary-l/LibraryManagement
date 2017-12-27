@@ -2,6 +2,7 @@ package com.library.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
 /**
  * Created by ZQX on 2017-08-08.
  */
@@ -18,6 +19,7 @@ public class MD5Util {
             }
         }
     };
+
     /**
      * @param b 字节数组
      * @return 16进制字串
@@ -30,6 +32,7 @@ public class MD5Util {
         }
         return resultSb.toString();
     }
+
     public static String byteArrayToHexStringLittleEnding(byte[] b) {
         StringBuffer resultSb = new StringBuffer();
         for (int i = 0; i < b.length; i++) {
@@ -37,6 +40,7 @@ public class MD5Util {
         }
         return resultSb.toString();
     }
+
     private static String byteToHexString(byte b, boolean bigEnding) {
         int n = b;
         if (n < 0)
@@ -45,9 +49,11 @@ public class MD5Util {
         int d2 = n % 16;
         return (bigEnding) ? (hexDigits[d1] + hexDigits[d2]) : (hexDigits[d2] + hexDigits[d1]);
     }
+
     public static String MD5Encode(String origin) {
         return MD5Encode(origin, null);
     }
+
     /**
      * 把16进制字符串转换为byte数组
      *
@@ -67,6 +73,7 @@ public class MD5Util {
         }
         return result;
     }
+
     /**
      * MD5摘要
      *
@@ -91,9 +98,11 @@ public class MD5Util {
         }
         return resultString;
     }
+
     public static MessageDigest getMd5Digest() {
         return MD5.get();
     }
+
     public static byte[] MD5Encode(byte origin[]) {
         try {
             MessageDigest md = MD5.get();

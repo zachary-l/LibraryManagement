@@ -5,9 +5,6 @@ import com.library.model.Reader;
 import com.library.service.ReaderManageService;
 import org.junit.Test;
 
-import java.util.List;
-import java.util.Map;
-
 public class TestReaderManageService {
     @Test
     public void findTest() {

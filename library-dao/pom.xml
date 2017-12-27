@@ -15,6 +15,10 @@
     <packaging>jar</packaging>
 <dependencies>
     <dependency>
+        <groupId>org.evergreen</groupId>
+        <artifactId>evergreen-mvc</artifactId>
+    </dependency>
+    <dependency>
         <groupId>org.zachary</groupId>
         <artifactId>library-model</artifactId>
         <version>${project.version}</version>

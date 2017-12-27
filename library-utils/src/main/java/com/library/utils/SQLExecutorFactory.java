@@ -13,22 +13,23 @@ public class SQLExecutorFactory {
     private static ThreadLocal<SQLExecutor> local = new ThreadLocal<>();
 
     //创建一个SQLExecutor,是绑定threadLocal中的
-    public static SQLExecutor getCurrentSQLExecutor(){
-        if(local.get()==null){
+    public static SQLExecutor getCurrentSQLExecutor() {
+        if (local.get() == null) {
             local.set(new SQLExecutor(DBUtil.getConnection()));
         }
         return local.get();
     }
+
     //创建普通的SQLExecutor，并没有绑定到threadLocal
-    public static SQLExecutor getSQLExecutor() throws SQLException{
+    public static SQLExecutor getSQLExecutor() throws SQLException {
         return new SQLExecutor(DBUtil.getConnection());
     }
 
     /**
      * 移除线程本地变量
      */
-    public static void removeLocal(){
-        if(local.get()!=null){
+    public static void removeLocal() {
+        if (local.get() != null) {
             local.remove();
         }
     }

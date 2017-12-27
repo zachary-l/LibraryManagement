@@ -21,10 +21,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.evergreen</groupId>
-            <artifactId>evergreen-mvc</artifactId>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>

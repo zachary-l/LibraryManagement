@@ -6,48 +6,53 @@ $(function () {
 
 function findBooks() {
     $.ajax({
-        url:"infoBooks/findBooks",
-        type:"post",
-        data:{currentPage:1},
-        success:function (data) {
+        url: "infoBooks/findBooks",
+        type: "post",
+        data: {currentPage: 1},
+        success: function (data) {
             infoBooksAddTable(data.list)
             infoBooksManagePage(data)
         }
     });
 }
+
 function findTypeBooks() {
     // sle_typeBooks
     $.ajax({
-        url:"typeBook/findType",
-        type:"post",
-        success:function (data) {
-            $.each(data,function (index,obj) {
-                $(".sle_typeBooks").append("<option value='"+obj.tyId+"'>"+obj.tyName+"</option>");
+        url: "typeBook/findType",
+        type: "post",
+        success: function (data) {
+            $.each(data, function (index, obj) {
+                $(".sle_typeBooks").append("<option value='" + obj.tyId + "'>" + obj.tyName + "</option>");
             })
         }
     });
-    $(".sle_typeBooks").on("change",function () {
+    $(".sle_typeBooks").on("change", function () {
         var typeId = $(".sle_typeBooks").val();
         $.ajax({
-            url:"infoBooks/findBooksById",
-            type:"post",
-            data:{currentPage:1,tyId:typeId},
-            success:function (data) {
+            url: "infoBooks/findBooksById",
+            type: "post",
+            data: {currentPage: 1, tyId: typeId},
+            success: function (data) {
                 infoBooksAddTable(data.list)
                 infoBooksManagePage(data)
             }
         });
     })
 }
+
 function infoBooksAddTable(list) {
     $(".infoBooks_tabs").remove();
     $.each(list, function (index, obj) {
         var publicationtime = obj.IN_PUBLICATIONTIME.split(" "),
-            uplibaraytime=  obj.IN_UPLIBRARYTIME.split(" "),
+            uplibaraytime = obj.IN_UPLIBRARYTIME.split(" "),
             updatetime = obj.IN_UPDATETIME.split(" "),
             borrowfrom = "";
-        if(obj.IN_BORROWFROM){borrowfrom = "允许外借"
-        }else{borrowfrom = "不允许外借"}
+        if (obj.IN_BORROWFROM) {
+            borrowfrom = "允许外借"
+        } else {
+            borrowfrom = "不允许外借"
+        }
         $(".booksInfoList_tab").append("<tr class='infoBooks_tabs'>" +
             "<td>" + obj.TY_NAME + "</td>" +
             "<td>" + obj.IN_ID + "</td>" +
@@ -56,16 +61,17 @@ function infoBooksAddTable(list) {
             "<td>" + obj.IN_PRESS + "</td>" +
             "<td>" + obj.IN_PRICE + "</td>" +
             "<td>" + obj.IN_NUM + "</td>" +
-            "<td>" +publicationtime[0]+ "</td>" +
-            "<td>" +uplibaraytime[0]+ "</td>" +
+            "<td>" + publicationtime[0] + "</td>" +
+            "<td>" + uplibaraytime[0] + "</td>" +
             "<td>" + updatetime[0] + "</td>" +
-            "<td>" +borrowfrom+ "</td>" +
+            "<td>" + borrowfrom + "</td>" +
             "<td><a href='#'>修改</a></td>" +
             "<td><a href='#'>下架</a></td>" +
             "</tr>");
     });
 
 }
+
 //分页方法
 function infoBooksManagePage(data) {
     //选择器选中分页的div容器，并调用pagination方法来设置分页控件

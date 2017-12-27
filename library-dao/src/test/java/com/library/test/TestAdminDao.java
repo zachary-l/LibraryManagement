@@ -42,9 +42,9 @@ public class TestAdminDao {
         //添加管理员
         int row = dao.addAdmin(ad);
         //修改
-//        int row = dao.revokeAdmin(ad);
-//        int row  = dao.updateAdmin(ad);
-//        int row = dao.updatePass(ad);
+//        int row = ReaderManagementDao.revokeAdmin(ad);
+//        int row  = ReaderManagementDao.updateAdmin(ad);
+//        int row = ReaderManagementDao.updatePass(ad);
         System.out.println(row);
     }
     @Test
