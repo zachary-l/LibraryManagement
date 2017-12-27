@@ -17,7 +17,9 @@ public class BorrowBooksController {
     //借阅记录列表
     @RequestMapping("/findList")
     public ViewResult findBorrowList(int currentPage) {
-        return new Json(new BorrowBooksService().findBorrowList(currentPage), "yyyy-MM-dd hh:mm:ss");
+        BorrowBooksService service = new BorrowBooksService();
+        PageBean pageBean = service.findBorrowList(currentPage);
+        return new Json(pageBean, "yyyy-MM-dd hh:mm:ss");
     }
 
     //借阅书籍
