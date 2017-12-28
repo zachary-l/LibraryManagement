@@ -1,19 +1,25 @@
 package com.library.service;
 
 import com.library.dao.AdminDao;
-import com.library.dao.exception.FlowException;
+import com.library.exception.FlowException;
 import com.library.model.Admin;
+import org.framework.beans.annotation.Component;
+import org.framework.beans.annotation.Inject;
+import org.framework.beans.annotation.Scope;
 
 import java.util.List;
-
+@Component("adminManageService")
+@Scope
 public class AdminManageService {
+    @Inject("adminDao")
+    private AdminDao adminDao;
     /**
      * 查询全部管理员
      *
      * @return
      */
     public List<Admin> findAll() {
-        List<Admin> list = new AdminDao().find();
+        List<Admin> list = adminDao.find();
         return list;
     }
 
@@ -22,12 +28,11 @@ public class AdminManageService {
      */
     public List<Admin> addAdmin(Admin ad) {
         List<Admin> list = null;
-        AdminDao dao = new AdminDao();
-        int row = dao.addAdmin(ad);
+        int row = adminDao.addAdmin(ad);
         if (row == 0) {
-            throw new FlowException("添加管理员信息失败", 401);
+            throw new FlowException("添加管理员信息失败");
         } else {
-            return dao.find();
+            return adminDao.find();
         }
     }
 
@@ -36,12 +41,11 @@ public class AdminManageService {
      */
     public List<Admin> updateAdmin(Admin ad) {
         List<Admin> list = null;
-        AdminDao dao = new AdminDao();
-        int row = dao.updateAdmin(ad);
+        int row = adminDao.updateAdmin(ad);
         if (row == 0) {
-            throw new FlowException("修改管理员信息失败", 401);
+            throw new FlowException("修改管理员信息失败");
         } else {
-            return dao.find();
+            return adminDao.find();
         }
     }
 
@@ -49,10 +53,9 @@ public class AdminManageService {
      * 修改个人密码
      */
     public void updatePass(Admin ad) {
-        AdminDao dao = new AdminDao();
-        int row = dao.updatePass(ad);
+        int row = adminDao.updatePass(ad);
         if (row == 0) {
-            throw new FlowException("修改密码失败", 401);
+            throw new FlowException("修改密码失败");
         }
     }
 
@@ -61,12 +64,11 @@ public class AdminManageService {
      */
     public List<Admin> revokeAdmin(Admin ad) {
         List<Admin> list = null;
-        AdminDao dao = new AdminDao();
-        int row = dao.revokeAdmin(ad);
+        int row = adminDao.revokeAdmin(ad);
         if (row == 0) {
-            throw new FlowException("修改管理员信息失败", 401);
+            throw new FlowException("修改管理员信息失败");
         } else {
-            return dao.find();
+            return adminDao.find();
         }
     }
 

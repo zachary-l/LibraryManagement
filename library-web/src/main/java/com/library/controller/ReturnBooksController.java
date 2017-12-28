@@ -1,28 +1,34 @@
 package com.library.controller;
 
-import com.library.dao.exception.FlowException;
+import com.library.exception.FlowException;
 import com.library.dto.DataDto;
 import com.library.dto.PageBean;
 import com.library.model.RetisgerFind;
 import com.library.model.ReturnBooks;
 import com.library.service.BorrowBooksService;
 import com.library.service.ReturnBooksListService;
-import org.evergreen.web.HttpStatus;
-import org.evergreen.web.ViewResult;
-import org.evergreen.web.annotation.RequestMapping;
-import org.evergreen.web.view.Json;
+import org.framework.beans.annotation.Component;
+import org.framework.beans.annotation.Inject;
+import org.framework.beans.annotation.Scope;
+import org.framework.mvc.ViewResult;
+import org.framework.mvc.ann.RequestMapping;
+import org.framework.mvc.view.JsonView;
 
 import java.util.Date;
 
 @RequestMapping("/returnBooks")
+@Component("returnBooksController")
+@Scope
 public class ReturnBooksController {
-
+    @Inject("returnBooksListService")
+    private ReturnBooksListService returnBooksListService;
+    @Inject("borrowBooksService")
+    private BorrowBooksService borrowBooksService;
     //归还书籍列表
     @RequestMapping("/findList")
     public ViewResult resultBooksList(int currentPage) {
-        ReturnBooksListService service = new ReturnBooksListService();
-        PageBean pageBean = service.findReturnBooksList(currentPage);
-        return new Json(pageBean, "yyyy-MM-dd hh:mm:ss");
+        PageBean pageBean = returnBooksListService.findReturnBooksList(currentPage);
+        return new JsonView(pageBean, "yyyy-MM-dd hh:mm:ss");
     }
 
 
@@ -32,16 +38,15 @@ public class ReturnBooksController {
         r.setRetNum(1);
         r.setRetTime(new Date());
         DataDto data = new DataDto();
-        BorrowBooksService service = new BorrowBooksService();
         try {
-            PageBean pageBean = service.returnBooks(r, currentPage, whetherFind, re);
+            PageBean pageBean = borrowBooksService.returnBooks(r, currentPage, whetherFind, re);
             data.setValue(pageBean);
-            data.setStatusCode(HttpStatus.SC_OK);
+            data.setStatusCode(200);
         } catch (FlowException e) {
             data.setMessage(e.getMessage());
-            data.setStatusCode(HttpStatus.SC_UNAUTHORIZED);
+            data.setStatusCode(200);
         }
-        return new Json(data, "yyyy-MM-dd hh:mm:ss");
+        return new JsonView(data, "yyyy-MM-dd hh:mm:ss");
     }
 
 }

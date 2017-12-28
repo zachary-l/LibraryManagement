@@ -5,10 +5,11 @@ import com.library.utils.DBUtil;
 import org.evergreen.db.helper.ResultSetHandler;
 import org.evergreen.db.helper.SQLExecutor;
 import org.evergreen.db.helper.handler.BeanListHandler;
+import org.framework.beans.annotation.Component;
 
 import java.sql.SQLException;
 import java.util.List;
-
+@Component("typeBookDao")
 public class TypeBookDao {
     /**
      * 查找全部图书类型

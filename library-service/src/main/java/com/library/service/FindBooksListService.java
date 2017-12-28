@@ -2,19 +2,22 @@ package com.library.service;
 
 import com.library.dao.FindListDao;
 import com.library.dto.PageBean;
+import org.framework.beans.annotation.Component;
+import org.framework.beans.annotation.Inject;
 
 import java.util.List;
 import java.util.Map;
-
+@Component("findBooksListService")
 public class FindBooksListService {
+    @Inject("findListDao")
+    private FindListDao findListDao;
     public PageBean findBooksList(int currentPage) {
         PageBean pageBean = new PageBean();
-        FindListDao dao = new FindListDao();
         pageBean.setCurrentPage(currentPage);
         pageBean.setMaxResult(10);
-        int countResult = dao.count();
+        int countResult = findListDao.count();
         pageBean.setCountResult(countResult);
-        List<Map<String, Object>> list = dao.findList(pageBean.getFirstResult(), pageBean.getMaxResult());
+        List<Map<String, Object>> list = findListDao.findList(pageBean.getFirstResult(), pageBean.getMaxResult());
         pageBean.setList(list);
         return pageBean;
     }

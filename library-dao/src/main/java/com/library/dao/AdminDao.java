@@ -7,10 +7,12 @@ import org.evergreen.db.helper.SQLExecutor;
 import org.evergreen.db.helper.handler.BeanHandler;
 import org.evergreen.db.helper.handler.BeanListHandler;
 import org.evergreen.db.helper.handler.ColumnHandler;
+import org.framework.beans.annotation.Component;
+import org.framework.beans.annotation.Scope;
 
 import java.sql.SQLException;
 import java.util.List;
-
+@Component("adminDao")
 public class AdminDao {
     /**
      * 图书管理员登陆

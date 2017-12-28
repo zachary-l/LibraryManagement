@@ -28,8 +28,8 @@
         <junit.version>4.12</junit.version>
         <mysql.version>5.1.38</mysql.version>
         <servlet.version>3.1.0</servlet.version>
-        <evergreen.version>1.2.1.RELEASE</evergreen.version>
-
+        <dbutil.version>1.2.1.RELEASE</dbutil.version>
+        <frameword.version>1.0-SNAPSHOT</frameword.version>
     </properties>
     <!--配置maven插件-->
     <build>
@@ -69,18 +69,30 @@
                 <version>${servlet.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <!--evergreen-->
             <dependency>
-                <groupId>org.evergreen</groupId>
-                <artifactId>evergreen-mvc</artifactId>
-                <version>${evergreen.version}</version>
+                <groupId>org.zachary.framework</groupId>
+                <artifactId>mvc</artifactId>
+                <version>${frameword.version}</version>
             </dependency>
             <!--evergreen-dbhelper-->
             <dependency>
                 <groupId>org.evergreen</groupId>
                 <artifactId>evergreen-dbhelper</artifactId>
-                <version>${evergreen.version}</version>
+                <version>${dbutil.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.zachary.framework</groupId>
+                <artifactId>beans</artifactId>
+                <version>${frameword.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.zachary.framework</groupId>
+                <artifactId>webplugin</artifactId>
+                <version>${frameword.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

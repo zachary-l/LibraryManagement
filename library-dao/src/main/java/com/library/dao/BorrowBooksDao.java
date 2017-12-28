@@ -1,6 +1,6 @@
 package com.library.dao;
 
-import com.library.dao.exception.FlowException;
+import com.library.exception.FlowException;
 import com.library.model.BorrowBooks;
 import com.library.model.ReturnBooks;
 import com.library.utils.DBUtil;
@@ -9,6 +9,7 @@ import org.evergreen.db.helper.ResultSetHandler;
 import org.evergreen.db.helper.SQLExecutor;
 import org.evergreen.db.helper.handler.ColumnHandler;
 import org.evergreen.db.helper.handler.MapListHandler;
+import org.framework.beans.annotation.Component;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.Map;
 /**
  * 图书借阅管理
  */
+@Component("borrowBooksDao")
 public class BorrowBooksDao {
     public List<Map<String, Object>> findBorrow(int firstResult, int maxResult) {
         List<Map<String, Object>> list = null;
@@ -77,7 +79,7 @@ public class BorrowBooksDao {
             row = se.executeUpdate(sql, r.getBorId());
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new FlowException("归还书籍失败", 401);
+            throw new FlowException("归还书籍失败");
         }
         return row;
     }
@@ -93,7 +95,7 @@ public class BorrowBooksDao {
             row = se.executeUpdate(sql, rb.getRetTime(), rb.getRetNum(), rb.getBorId());
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new FlowException("添加归还记录失败", 401);
+            throw new FlowException("添加归还记录失败");
         }
         return row;
     }

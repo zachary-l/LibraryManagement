@@ -15,8 +15,12 @@
     <packaging>jar</packaging>
 <dependencies>
     <dependency>
-        <groupId>org.evergreen</groupId>
-        <artifactId>evergreen-mvc</artifactId>
+        <groupId>org.zachary.framework</groupId>
+        <artifactId>mvc</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.zachary.framework</groupId>
+        <artifactId>beans</artifactId>
     </dependency>
     <dependency>
         <groupId>org.zachary</groupId>

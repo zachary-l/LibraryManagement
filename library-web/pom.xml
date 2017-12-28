@@ -46,6 +46,10 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.zachary.framework</groupId>
+            <artifactId>webplugin</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

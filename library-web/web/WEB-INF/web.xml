@@ -3,10 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
     <!--字符编码过滤器-->
     <filter>
         <filter-name>encoding</filter-name>
-        <filter-class>org.evergreen.web.filter.CharacterEncodingFilter</filter-class>
+        <filter-class>com.library.filter.EncodingFilter</filter-class>
+        <!--配置初始化参数-->
         <init-param>
             <param-name>encoding</param-name>
             <param-value>utf-8</param-value>
@@ -14,14 +16,26 @@
     </filter>
     <filter-mapping>
         <filter-name>encoding</filter-name>
+        <!--这里的url-pattern表示过滤器对什么请求进行拦截
+            表示拦截所有的请求-->
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!--监听器-->
+    <listener>
+        <listener-class>org.framework.plugin.ContextListener</listener-class>
+    </listener>
+    <!--指定ioc容器扫描的包名-->
+    <context-param>
+        <param-name>scanPackage</param-name>
+        <param-value>com.library</param-value>
+    </context-param>
 
     <!--mvc框架提供的请求总控器-->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
-        <servlet-class>org.evergreen.web.ActionServlet</servlet-class>
-        <!--容器启动市创建ActionServlet实例-->
+        <servlet-class>org.framework.mvc.DispatcherServlet</servlet-class>
+        <!--容器启动创建ActionServlet实例-->
         <load-on-startup>1</load-on-startup>
         <!--开启上传功能-->
         <multipart-config/>
@@ -30,4 +44,5 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
 </web-app>

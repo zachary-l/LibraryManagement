@@ -1,6 +1,6 @@
 package com.library.dao;
 
-import com.library.dao.exception.FlowException;
+import com.library.exception.FlowException;
 import com.library.model.RetisgerFind;
 import com.library.model.ReturnBooks;
 import com.library.utils.DBUtil;
@@ -9,11 +9,12 @@ import org.evergreen.db.helper.ResultSetHandler;
 import org.evergreen.db.helper.SQLExecutor;
 import org.evergreen.db.helper.handler.ColumnHandler;
 import org.evergreen.db.helper.handler.MapListHandler;
+import org.framework.beans.annotation.Component;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
-
+@Component("returnFindDao")
 public class ReturnFindDao {
 
     /**
@@ -27,7 +28,7 @@ public class ReturnFindDao {
             row = se.executeUpdate(sql, re.getRfExplain(), re.getRfMoney(), re.getTypeFind(), r.getBorId());
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new FlowException("添加惩罚记录失败", 401);
+            throw new FlowException("添加惩罚记录失败");
 
         }
         return row;

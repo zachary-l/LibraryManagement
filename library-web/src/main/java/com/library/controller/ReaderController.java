@@ -1,17 +1,23 @@
 package com.library.controller;
 
-import com.library.dao.exception.FlowException;
+import com.library.exception.FlowException;
 import com.library.dto.DataDto;
 import com.library.dto.PageBean;
 import com.library.model.Reader;
 import com.library.service.ReaderManageService;
-import org.evergreen.web.HttpStatus;
-import org.evergreen.web.ViewResult;
-import org.evergreen.web.annotation.RequestMapping;
-import org.evergreen.web.view.Json;
+import org.framework.beans.annotation.Component;
+import org.framework.beans.annotation.Inject;
+import org.framework.beans.annotation.Scope;
+import org.framework.mvc.ViewResult;
+import org.framework.mvc.ann.RequestMapping;
+import org.framework.mvc.view.JsonView;
 
 @RequestMapping("/reader")
+@Component("readerController")
+@Scope
 public class ReaderController {
+    @Inject("readerManageService")
+    private ReaderManageService readerManageService;
     /**
      * 查看读者信息列表
      *
@@ -20,8 +26,8 @@ public class ReaderController {
      */
     @RequestMapping("/find")
     public ViewResult find(int currentPage) {
-        PageBean pageBean = new ReaderManageService().find(currentPage);
-        return new Json(pageBean);
+        PageBean pageBean = readerManageService.find(currentPage);
+        return new JsonView(pageBean);
     }
 
     /**
@@ -31,14 +37,14 @@ public class ReaderController {
     public ViewResult addReader(Reader re, int currentPage) {
         DataDto data = new DataDto();
         try {
-            PageBean pageBean = new ReaderManageService().addReader(re, currentPage);
-            data.setStatusCode(HttpStatus.SC_OK);
+            PageBean pageBean = readerManageService.addReader(re, currentPage);
+            data.setStatusCode(200);
             data.setValue(pageBean);
         } catch (FlowException e) {
             data.setMessage(e.getMessage());
-            data.setStatusCode(HttpStatus.SC_UNAUTHORIZED);
+            data.setStatusCode(401);
         }
-        return new Json(data);
+        return new JsonView(data);
     }
 
     /**
@@ -53,13 +59,13 @@ public class ReaderController {
         System.out.println(reId + currentPage);
         DataDto data = new DataDto();
         try {
-            PageBean pageBean = new ReaderManageService().deleteReader(reId, currentPage);
-            data.setStatusCode(HttpStatus.SC_OK);
+            PageBean pageBean = readerManageService.deleteReader(reId, currentPage);
+            data.setStatusCode(200);
             data.setValue(pageBean);
         } catch (FlowException e) {
             data.setMessage(e.getMessage());
-            data.setStatusCode(HttpStatus.SC_UNAUTHORIZED);
+            data.setStatusCode(401);
         }
-        return new Json(data);
+        return new JsonView(data);
     }
 }

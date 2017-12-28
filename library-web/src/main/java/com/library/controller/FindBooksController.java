@@ -2,18 +2,24 @@ package com.library.controller;
 
 import com.library.dto.PageBean;
 import com.library.service.FindBooksListService;
-import org.evergreen.web.ViewResult;
-import org.evergreen.web.annotation.RequestMapping;
-import org.evergreen.web.view.Json;
+import org.framework.beans.annotation.Component;
+import org.framework.beans.annotation.Inject;
+import org.framework.beans.annotation.Scope;
+import org.framework.mvc.ViewResult;
+import org.framework.mvc.ann.RequestMapping;
+import org.framework.mvc.view.JsonView;
 
 @RequestMapping("/findBooks")
+@Component("findBooksController")
+@Scope
 public class FindBooksController {
+    @Inject("findBooksListService")
+    private FindBooksListService findBooksListService;
     //罚金记录列表
     @RequestMapping("/list")
     public ViewResult findBooksList(int currentPage) {
-        FindBooksListService service = new FindBooksListService();
-        PageBean pageBean = service.findBooksList(currentPage);
-        return new Json(pageBean, "yyyy-MM-dd hh:mm:ss");
+        PageBean pageBean = findBooksListService.findBooksList(currentPage);
+        return new JsonView(pageBean, "yyyy-MM-dd hh:mm:ss");
     }
 
 

@@ -7,11 +7,12 @@ import org.evergreen.db.helper.ResultSetHandler;
 import org.evergreen.db.helper.SQLExecutor;
 import org.evergreen.db.helper.handler.ColumnHandler;
 import org.evergreen.db.helper.handler.MapListHandler;
+import org.framework.beans.annotation.Component;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
-
+@Component("infoBookDao")
 public class InfoBookDao {
     /**
      * 查询全部书籍
