@@ -20,6 +20,8 @@
                     <target>1.8</target>
                     <source>1.8</source>
                     <encoding>UTF-8</encoding>
+                    <compilerArgument>-parameters</compilerArgument>
+                    <!--<compilerArgs>-parameters</compilerArgs>-->
                 </configuration>
             </plugin>
 

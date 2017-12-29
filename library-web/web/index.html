@@ -13,6 +13,7 @@
     <script src="js/jquery.pagination.js"></script>
     <script src="js/closable-tab-div.js"></script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/index.js"></script>
     <style>
         .con2_1 {
             width: 84%;
@@ -30,12 +31,11 @@
     </h1>
     <ul class="rt_nav">
         <li><a href="#" target="_blank" class="website_icon">系统首页</a></li>
-        <li><a href="#" class="admin_icon">用户名</a></li>
+        <li><a href="#" class="admin_icon">用户</a></li>
         <li><a href="#" class="set_icon">账号设置</a></li>
-        <li><a href="#" class="quit_icon">安全退出</a></li>
+        <li><a href="#" class="quit_icon signOut_system" data-toggle="modal" data-target="#signOut_system">安全退出</a></li>
     </ul>
 </header>
-<font></font>
 <!--aside nav-->
 <!--aside nav-->
 <div class="contents">
@@ -117,6 +117,11 @@
     </div>
 </div>
 </body>
+
+<div id="signOut_model">
+
+</div>
+
 <script>
     //	加载页面
     $(function () {

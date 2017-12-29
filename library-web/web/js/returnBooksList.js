@@ -18,6 +18,7 @@ function findList() {
 function addList(list) {
     $(".returnBooksList_tr").remove();
     $.each(list, function (index, obj) {
+        alert(obj.RET_TIME);
         $(".returnBooksList_tab").append("<tr class='returnBooksList_tr'>" +
             "<td>" + obj.RET_ID + "</td>" +
             "<td>" + obj.RE_ID + "</td>" +

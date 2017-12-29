@@ -11,24 +11,24 @@ import java.util.List;
 import java.util.Map;
 
 public class TestAdminDao {
-    @Test
+    //@Test
     public void findByIdest(){
         Admin admin = new Admin();
-        admin.setAdId(600002);
+        admin.setAdId(600000);
         admin.setAdName("zachary");
         admin.setAdPass("123456");
         AdminDao dao = new AdminDao();
         Admin ad = dao.findById(admin.getAdId());
         System.out.println(ad.getAdName());
     }
-    @Test
+    //@Test
     public void findTest(){
         List<Admin> list = new AdminDao().find();
         for(Admin l:list){
             System.out.println(l);
         }
     }
-    @Test
+    //@Test
     public void addAdminTest(){
         Admin ad = new Admin();
         ad.setAdId(600001);
@@ -47,12 +47,12 @@ public class TestAdminDao {
 //        int row = ReaderManagementDao.updatePass(ad);
         System.out.println(row);
     }
-    @Test
+    //@Test
     public void count(){
         AdminDao dao = new AdminDao();
         System.out.println(dao.count());
     }
-    @Test
+   // @Test
     public void findReaderDaoTest(){
         ReaderDao dao = new ReaderDao();
         List<Map<String,Object>> list = dao.findReader(1,1);
@@ -62,7 +62,7 @@ public class TestAdminDao {
             }
         }
     }
-    @Test
+    //@Test
     public void deteleReaderTest(){
         int row = new ReaderDao().deleteReader(500002);
         System.out.println(row);

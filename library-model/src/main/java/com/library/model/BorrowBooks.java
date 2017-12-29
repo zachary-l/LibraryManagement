@@ -88,4 +88,18 @@ public class BorrowBooks {
     public void setAdId(int adId) {
         this.adId = adId;
     }
+
+    @Override
+    public String toString() {
+        return "BorrowBooks{" +
+                "borId=" + borId +
+                ", borTime=" + borTime +
+                ", borTimeLast=" + borTimeLast +
+                ", borNum=" + borNum +
+                ", borReturn=" + borReturn +
+                ", inId=" + inId +
+                ", reId=" + reId +
+                ", adId=" + adId +
+                '}';
+    }
 }

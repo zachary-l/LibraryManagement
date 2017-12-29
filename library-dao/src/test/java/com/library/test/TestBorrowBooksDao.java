@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TestBorrowBooksDao {
-    @Test
+    //@Test
     public void findTest(){
         BorrowBooksDao dao  =new BorrowBooksDao();
         List<Map<String,Object>> list = dao.findBorrow(0,10);

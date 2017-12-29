@@ -40,6 +40,7 @@ public class ReturnBooksController {
         DataDto data = new DataDto();
         try {
             PageBean pageBean = borrowBooksService.returnBooks(r, currentPage, whetherFind, re);
+            System.out.println(pageBean);
             data.setValue(pageBean);
             data.setStatusCode(200);
         } catch (FlowException e) {

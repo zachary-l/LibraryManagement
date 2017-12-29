@@ -19,8 +19,9 @@ function findList() {
 function addBorrowBooks() {
     $(".borrowBooks_addbtn").on("click", function () {
         var param = $.param({'currentPage': 1}) + '&' + $("#borrowBooks_addf1").serialize();
+        alert(param);
         $.ajax({
-            url: "borrow/add",
+            url: "borrow/addBooks",
             type: "post",
             data: param,
             success: function (data) {
