@@ -16,7 +16,7 @@ public class ReaderManageService {
     public PageBean find(int currentPage) {
         PageBean pageBean = new PageBean();
         pageBean.setCurrentPage(currentPage);
-        pageBean.setMaxResult(10);
+        pageBean.setMaxResult(8);
         int countResult = readerDao.count();
         //设置中记录数,会自动计算出总页数
         pageBean.setCountResult(countResult);

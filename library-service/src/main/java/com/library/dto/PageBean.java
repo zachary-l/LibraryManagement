@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class PageBean {
 	
-	private int maxResult = 10;//每页显示记录数(设置)*
+	private int maxResult = 8;//每页显示记录数(设置)*
 	
 	private int currentPage;//当前页(验证有效性)*
 	

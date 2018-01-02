@@ -24,7 +24,7 @@ public class BorrowBooksService {
     public PageBean findBorrowList(int currentPage) {
         PageBean pageBean = new PageBean();
         pageBean.setCurrentPage(currentPage);
-        pageBean.setMaxResult(10);
+        pageBean.setMaxResult(8);
         int countResult = borrowBooksDao.count();
         pageBean.setCountResult(countResult);
         List<Map<String, Object>> list = borrowBooksDao.findBorrow(pageBean.getFirstResult(), pageBean.getMaxResult());

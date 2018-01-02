@@ -86,7 +86,7 @@ function readerManagePage(data) {
         callback: function (index) {//定义一个回调函数，用于每次点击页码发起分页查询请求
             var currentPage = ++index;
             $.get("reader/find", "currentPage=" + currentPage, function (data) {
-                myscheduleAddTable(data.list);
+                readerManageAddTable(data.list);
             });
         }
     });

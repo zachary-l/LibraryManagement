@@ -20,7 +20,7 @@ public class InfoBooksService {
     public PageBean findInfoBooks(int currentPage) {
         PageBean pageBean = new PageBean();
         pageBean.setCurrentPage(currentPage);
-        pageBean.setMaxResult(10);
+        pageBean.setMaxResult(8);
         int countResult = infoBookDao.count();
         pageBean.setCountResult(countResult);
         List<Map<String, Object>> list = infoBookDao.findBooksList(pageBean.getFirstResult(), pageBean.getMaxResult());

@@ -14,7 +14,7 @@ public class FindBooksListService {
     public PageBean findBooksList(int currentPage) {
         PageBean pageBean = new PageBean();
         pageBean.setCurrentPage(currentPage);
-        pageBean.setMaxResult(10);
+        pageBean.setMaxResult(8);
         int countResult = findListDao.count();
         pageBean.setCountResult(countResult);
         List<Map<String, Object>> list = findListDao.findList(pageBean.getFirstResult(), pageBean.getMaxResult());

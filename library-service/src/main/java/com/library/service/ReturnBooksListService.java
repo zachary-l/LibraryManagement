@@ -15,7 +15,7 @@ public class ReturnBooksListService {
     public PageBean findReturnBooksList(int currentPage) {
         PageBean pageBean = new PageBean();
         pageBean.setCurrentPage(currentPage);
-        pageBean.setMaxResult(10);
+        pageBean.setMaxResult(8);
         int countResult = returnFindDao.count();
         pageBean.setCountResult(countResult);
         List<Map<String, Object>> list = returnFindDao.findReturnBooks(pageBean.getFirstResult(), pageBean.getMaxResult());
