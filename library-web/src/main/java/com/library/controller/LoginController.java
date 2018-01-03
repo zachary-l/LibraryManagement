@@ -17,7 +17,10 @@ import org.framework.mvc.view.JsonView;
 public class LoginController {
     @Inject("adminLoginService")
     private AdminLoginService adminLoginService;
-    //登陆请求处理
+
+    /**
+     * 登陆请求处理
+     */
     @RequestMapping("/browserlogin")
     public ViewResult browserLogin(Admin ad) {
         Admin admin = null;

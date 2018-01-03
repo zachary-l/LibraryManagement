@@ -15,13 +15,24 @@ import org.framework.mvc.view.JsonView;
 public class FindBooksController {
     @Inject("findBooksListService")
     private FindListService findBooksListService;
-    //罚金记录列表
+
+    /**
+     * 罚金记录列表
+     * @param currentPage
+     * @return
+     */
     @RequestMapping("/list")
     public ViewResult findBooksList(int currentPage) {
         PageBean pageBean = findBooksListService.findBooksList(currentPage);
         return new JsonView(pageBean, "yyyy-MM-dd hh:mm:ss");
     }
 
+    /**
+     * 删除罚金记录
+     * @param currentPage
+     * @param rfId
+     * @return
+     */
     @RequestMapping("/delete")
     public ViewResult deleteFindList(int currentPage,int rfId){
         PageBean pageBean = findBooksListService.deleteFindList(rfId,currentPage);

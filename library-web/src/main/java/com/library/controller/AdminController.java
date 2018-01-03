@@ -23,6 +23,10 @@ public class AdminController {
     @Inject("adminManageService")
     private AdminManageService adminManageService;
 
+    /**
+     * 获取当前登陆人的用户信息
+     * @return
+     */
     @RequestMapping("/findById")
     public ViewResult findById() {
         Admin admin = (Admin) ActionContext.getContext().getSessionMap().get("admin");

@@ -5,6 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 字符过滤起
+ */
 public class EncodingFilter implements Filter {
 
 	private String encoding;

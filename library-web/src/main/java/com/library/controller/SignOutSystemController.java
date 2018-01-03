@@ -13,6 +13,10 @@ import org.framework.mvc.view.RedirectView;
 @Component("signOutSystemController")
 @Scope
 public class SignOutSystemController {
+    /**
+     * 退出登陆
+     * @return
+     */
     @RequestMapping("/signOut")
     public ViewResult signOut(){
         ActionContext.getContext().getSessionMap().remove("admin");

@@ -24,7 +24,10 @@ public class ReturnBooksController {
     private ReturnBooksListService returnBooksListService;
     @Inject("borrowBooksService")
     private BorrowBooksService borrowBooksService;
-    //归还书籍列表
+
+    /**
+     * 归还书籍列表
+     */
     @RequestMapping("/findList")
     public ViewResult resultBooksList(int currentPage) {
         PageBean pageBean = returnBooksListService.findReturnBooksList(currentPage);
@@ -32,7 +35,9 @@ public class ReturnBooksController {
     }
 
 
-    //归还书籍
+    /**
+     * 归还书籍列表
+     */
     @RequestMapping("/addSincerity")
     public ViewResult addSinReturnBooks(ReturnBooks r, int currentPage, int whetherFind, RetisgerFind re) {
         r.setRetNum(1);

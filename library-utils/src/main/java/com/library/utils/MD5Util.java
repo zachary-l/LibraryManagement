@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by ZQX on 2017-08-08.
+ * 字符串加密
  */
 public class MD5Util {
     private final static String[] hexDigits = {"0", "1", "2", "3", "4", "5",

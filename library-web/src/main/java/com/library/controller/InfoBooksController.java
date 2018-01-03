@@ -56,4 +56,24 @@ public class InfoBooksController {
         }
         return new JsonView(data, "yyyy-MM-dd hh:mm:ss");
     }
+
+    /**
+     * 删除图书
+     * @param inId
+     * @param currentPage
+     * @return
+     */
+    @RequestMapping("/deleteBooks")
+    public ViewResult deleteBooks(int inId,int currentPage){
+        DataDto data = new DataDto();
+        try {
+            PageBean pageBean = infoBooksService.deleteIndoBook(inId,currentPage);
+            data.setStatusCode(200);
+            data.setValue(pageBean);
+        } catch (FlowException e) {
+            data.setMessage(e.getMessage());
+            data.setStatusCode(401);
+        }
+        return new JsonView(data, "yyyy-MM-dd hh:mm:ss");
+    }
 }

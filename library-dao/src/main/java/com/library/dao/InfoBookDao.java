@@ -99,8 +99,19 @@ public class InfoBookDao {
         return row;
     }
     /**
-     * 下架书籍
+     * 删除书籍书籍
      */
+    public int upInfoBooks(int inId){
+        int row = 0;
+        String sql = "DELETE  FROM INFORMATION_BOOKS WHERE IN_ID = ?";
+        SQLExecutor se  = new SQLExecutor(DBUtil.getConnection());
+        try {
+            se.executeUpdate(sql,inId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return row;
+    }
 
 
 }

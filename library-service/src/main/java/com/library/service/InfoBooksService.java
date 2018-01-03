@@ -55,4 +55,16 @@ public class InfoBooksService {
             return findInfoBooks(currentPage);
         }
     }
+    /**
+     * 删除图书
+     */
+    public PageBean deleteIndoBook(int inId,int currentPage){
+        int row = 0;
+        row = infoBookDao.upInfoBooks(inId);
+        if (row == 0) {
+            throw new FlowException("添加书籍失败");
+        } else {
+            return findInfoBooks(currentPage);
+        }
+    }
 }

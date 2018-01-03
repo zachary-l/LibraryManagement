@@ -41,4 +41,18 @@ public class TypeBookDao {
         }
         return row;
     }
+    /**
+     * 删除图书类型
+     */
+    public int deleteTypeBook(int tyId){
+        int row =0;
+        String sql = "DELETE FROM TYPE_BOOKS WHERE TY_ID = ?";
+        SQLExecutor se = new SQLExecutor(DBUtil.getConnection());
+        try {
+            se.executeUpdate(sql,tyId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return row;
+    }
 }
