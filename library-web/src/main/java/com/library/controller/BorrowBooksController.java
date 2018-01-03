@@ -38,7 +38,6 @@ public class BorrowBooksController {
         borrowBooks.setBorTimeLast(ChangeDateUtil.StringToDate(lastTime));
         Admin admin = (Admin) ActionContext.getContext().getSessionMap().get("admin");
         borrowBooks.setAdId(admin.getAdId());
-        System.out.println(borrowBooks);
         DataDto data = new DataDto();
         try {
             PageBean pageBean = borrowBooksService.borrowBooks(currentPage, borrowBooks);

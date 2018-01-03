@@ -46,6 +46,7 @@ public class AdminController {
         try {
             list = adminManageService.addAdmin(ad);
             data.setStatusCode(200);
+            data.setValue(list);
         } catch (FlowException e) {
             data.setMessage(e.getMessage());
             data.setStatusCode(401);
@@ -65,6 +66,7 @@ public class AdminController {
         try {
             list = adminManageService.updateAdmin(ad);
             data.setStatusCode(200);
+            data.setValue(list);
         } catch (FlowException e) {
             e.printStackTrace();
             data.setMessage(e.getMessage());
@@ -82,7 +84,7 @@ public class AdminController {
         Admin admin = (Admin) ActionContext.getContext().getSessionMap().get("admin");
         ad.setAdId(admin.getAdId());
         try {
-            new AdminManageService().updatePass(ad);
+            adminManageService.updatePass(ad);
             data.setStatusCode(200);
         } catch (FlowException e) {
             e.printStackTrace();
