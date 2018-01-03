@@ -54,5 +54,17 @@ public class FindListDao {
         return count;
     }
 
+    public int deleteFindList(int rfId){
+        int row = 0;
+        String sql = "SELECT * FROM REGISTER_FINE WHERE RF_ID=?";
+        SQLExecutor se = new SQLExecutor(DBUtil.getConnection());
+        try {
+            row = se.executeUpdate(sql,rfId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return row;
+    }
+
 
 }
