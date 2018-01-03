@@ -71,24 +71,25 @@
                 <version>${servlet.version}</version>
                 <scope>provided</scope>
             </dependency>
+            <!--mvc-->
             <dependency>
                 <groupId>org.zachary.framework</groupId>
                 <artifactId>mvc</artifactId>
                 <version>${frameword.version}</version>
             </dependency>
-            <!--evergreen-dbhelper-->
+            <!--dbutil-->
             <dependency>
                 <groupId>org.evergreen</groupId>
                 <artifactId>evergreen-dbhelper</artifactId>
                 <version>${dbutil.version}</version>
             </dependency>
-
+            <!--ioc-->
             <dependency>
                 <groupId>org.zachary.framework</groupId>
                 <artifactId>beans</artifactId>
                 <version>${frameword.version}</version>
             </dependency>
-
+            <!--整合mvc ioc插件-->
             <dependency>
                 <groupId>org.zachary.framework</groupId>
                 <artifactId>webplugin</artifactId>
